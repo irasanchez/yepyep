@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [purchaseType, setPurchaseType] = useState(false)
+  const [menuVisibility, setMenuVisibility] = useState(false)
   const selectedPurchaseType = 'shadow-md bg-purple-700 rounded'
   return (
     <>
@@ -22,7 +23,7 @@ export default function Home() {
               />
             </a>
             <div className="lg:hidden">
-              <button className="navbar-burger flex items-center text-white p-3">
+              <button className="navbar-burger flex items-center text-white p-3" onClick={()=>setMenuVisibility(!menuVisibility)}>
                 <svg
                   className="block h-4 w-4 fill-current"
                   viewBox="0 0 20 20"
@@ -33,7 +34,7 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+            <ul className={`${menuVisibility?'':'hidden'}  absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
               <li>
                 <a className="text-sm text-gray-300 hover:text-white" href="#">
                   Start
