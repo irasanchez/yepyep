@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 
+
 export default function Home() {
+  const [purchaseType, setPurchaseType] = useState(false)
+  const selectedPurchaseType = 'shadow-md bg-purple-700 rounded'
   return (
     <>
 
@@ -481,7 +485,7 @@ export default function Home() {
         </section>
         <section>
 
-        
+
           <div className="py-20 bg-purple-600 radius-for-skewed">
             <div className="container mx-auto px-4">
               <div className="mb-16 max-w-lg mx-auto text-center">
@@ -493,10 +497,10 @@ export default function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
                 <div className="inline-block py-1 px-1 bg-purple-500 rounded-lg">
-                  <button className="mr-1 text-sm py-2 px-4 text-white hover:text-gray-200 font-bold">
+                  <button className={`mr-1 text-sm py-2 px-4 text-white  ${!purchaseType ? selectedPurchaseType : 'hover:text-gray-200' } font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
                     Single{" "}
                   </button>
-                  <button className="text-sm py-2 px-4 text-white bg-purple-600 rounded-lg shadow-md font-bold">
+                  <button className={`text-sm py-2 px-4 text-white ${purchaseType ? selectedPurchaseType : 'hover:text-gray-200' } font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
                     Package
               </button>
                 </div>
@@ -550,7 +554,7 @@ export default function Home() {
 
         </section>
         <section>
-          
+
           <div className="py-20 bg-purple-600 radius-for-skewed overflow-hidden">
             <div className="container mx-auto px-4">
               <div className="pt-8 pb-16 flex flex-wrap justify-center items-center">
@@ -739,11 +743,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-         
+
         </section>
         <section>
-          
-                
+
+
           <div className="py-20 bg-purple-600 radius-for-skewed">
             <div className="container mx-auto px-4">
               <div className="mb-12">
@@ -831,8 +835,8 @@ export default function Home() {
                             Browse
                       </div>
                         </label>
-                      
-                    
+
+
                         <button className="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-pink-600 hover:bg-pink-700 text-white font-bold leading-loose transition duration-200">
                           Get Started
                     </button>
@@ -843,7 +847,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-         
+
         </section>
       </div>
     </>
