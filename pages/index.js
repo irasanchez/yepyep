@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
-import styles from '../styles/Home.module.css'
+
 
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-white font-bold" href="#">
+                <a className="text-sm text-white font-bold" href="#about">
                   About Us
             </a>
               </li>
@@ -78,7 +78,7 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#">
+                <a className="text-sm text-gray-300 hover:text-white" href="#services">
                   Services
             </a>
               </li>
@@ -99,7 +99,7 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#">
+                <a className="text-sm text-gray-300 hover:text-white" href="#pricing">
                   Pricing
             </a>
               </li>
@@ -120,14 +120,14 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#">
+                <a className="text-sm text-gray-300 hover:text-white" href="#reviews">
                   Testimonials
             </a>
               </li>
             </ul>
             <a
               className="hidden lg:block py-2 px-6 bg-pink-600 hover:bg-pink-700 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
-              href="#"
+              href="#contact"
             >
               Contact Us
         </a>
@@ -156,9 +156,9 @@ export default function Home() {
                     </a>
                         <a
                           className="inline-block w-full lg:w-auto py-2 px-6 leading-loose text-white font-semibold bg-purple-600 border-2 border-purple-400 hover:border-purple-500 rounded-l-xl rounded-t-xl transition duration-200"
-                          href="#"
+                          href="#features"
                         >
-                          How it works
+                        Features
                     </a>
                       </div>
                     </div>
