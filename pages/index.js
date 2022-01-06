@@ -7,13 +7,16 @@ import { useState } from 'react'
 export default function Home() {
   const [purchaseType, setPurchaseType] = useState(false)
   const [menuVisibility, setMenuVisibility] = useState(false)
-  const selectedPurchaseType = 'shadow-md bg-purple-700 rounded'
+  const [mainColor, mainColorDark] = ['red-600', 'red-900']
+  const [secondaryColor, secondaryColorDark] = ['yellow-400', 'yellow-700']
+  const selectedPurchaseType = `shadow-md bg-${mainColorDark} rounded`
+
   return (
     <>
 
       <div>
         <section className="skewed-bottom-right">
-          <nav className="relative px-6 py-6 flex justify-between items-center bg-purple-600">
+          <nav className={`relative px-6 py-6 flex justify-between items-center bg-${mainColor}`}>
             <a className="text-white text-3xl font-bold leading-none" href="#">
               <img
                 className="h-12"
@@ -23,7 +26,7 @@ export default function Home() {
               />
             </a>
             <div className="lg:hidden">
-              <button className="navbar-burger flex items-center text-white p-3" onClick={()=>setMenuVisibility(!menuVisibility)}>
+              <button className="navbar-burger flex items-center text-white p-3" onClick={() => setMenuVisibility(!menuVisibility)}>
                 <svg
                   className="block h-4 w-4 fill-current"
                   viewBox="0 0 20 20"
@@ -34,7 +37,7 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <ul className={`${menuVisibility?'':'hidden'}  absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
+            <ul className={`${menuVisibility ? '' : 'hidden'}  absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
               <li>
                 <a className="text-sm text-gray-300 hover:text-white" href="#">
                   Start
@@ -126,13 +129,13 @@ export default function Home() {
               </li>
             </ul>
             <a
-              className="hidden lg:block py-2 px-6 bg-pink-600 hover:bg-pink-700 text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200"
+              className={`hidden lg:block py-2 px-6 bg-${secondaryColor} hover:bg-${secondaryColorDark} text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200`}
               href="#contact"
             >
               Contact Us
         </a>
           </nav>
-          <div className="bg-purple-600 pt-12 lg:pt-20 pb-20 radius-for-skewed">
+          <div className={`bg-${mainColor} pt-12 lg:pt-20 pb-20 radius-for-skewed`}>
             <div className="container mx-auto px-4">
               <div className="flex flex-wrap -mx-4">
                 <div className="w-full lg:w-1/2 px-4 mb-12 md:mb-20 lg:mb-0 flex items-center">
@@ -140,25 +143,25 @@ export default function Home() {
                     <div className="max-w-md mx-auto lg:mx-0">
                       <h2 className="mb-3 text-4xl lg:text-5xl text-white font-bold">
                         <span>Building your product should be</span>
-                        <span className="text-yellow-400">easy</span>
+                        <span className={`text-${secondaryColor}-400`}>easy</span>
                       </h2>
                     </div>
                     <div className="max-w-sm mx-auto lg:mx-0">
                       <p className="mb-6 text-gray-300 leading-loose">
-                        Affordable, transparent, friendly software service. Yepyep!
+                        Affordable, transparent, friendly software service. <br /> Yepyep!
                   </p>
                       <div>
                         <a
-                          className="inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-white hover:bg-purple-100 text-purple-600 font-semibold rounded-l-xl rounded-t-xl transition duration-200"
+                          className={`inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-white hover:bg-red-100 text-${mainColor} font-semibold rounded-l-xl rounded-t-xl transition duration-200`}
                           href="#"
                         >
                           Get Started
                     </a>
                         <a
-                          className="inline-block w-full lg:w-auto py-2 px-6 leading-loose text-white font-semibold bg-purple-600 border-2 border-purple-400 hover:border-purple-500 rounded-l-xl rounded-t-xl transition duration-200"
+                          className={`inline-block w-full lg:w-auto py-2 px-6 leading-loose text-white font-semibold bg-${mainColor} border-2 border-${mainColor} hover:border-${mainColorDark} rounded-l-xl rounded-t-xl transition duration-200`}
                           href="#features"
                         >
-                        Features
+                          Features
                     </a>
                       </div>
                     </div>
@@ -202,7 +205,7 @@ export default function Home() {
           </div>
           <div className="mr-for-radius">
             <svg
-              className="h-8 md:h-12 lg:h-20 w-full text-purple-600"
+              className={`h-8 md:h-12 lg:h-20 w-full text-${mainColor}`}
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
@@ -242,7 +245,7 @@ export default function Home() {
                 <ul>
                   <li className="mb-1">
                     <a
-                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-purple-50 hover:text-purple-600 rounded"
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
                       href="#"
                     >
                       Start
@@ -250,7 +253,7 @@ export default function Home() {
                   </li>
                   <li className="mb-1">
                     <a
-                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-purple-50 hover:text-purple-600 rounded"
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
                       href="#"
                     >
                       About Us
@@ -258,7 +261,7 @@ export default function Home() {
                   </li>
                   <li className="mb-1">
                     <a
-                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-purple-50 hover:text-purple-600 rounded"
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
                       href="#"
                     >
                       Services
@@ -266,7 +269,7 @@ export default function Home() {
                   </li>
                   <li className="mb-1">
                     <a
-                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-purple-50 hover:text-purple-600 rounded"
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
                       href="#"
                     >
                       Pricing
@@ -274,7 +277,7 @@ export default function Home() {
                   </li>
                   <li className="mb-1">
                     <a
-                      className="block p-4 text-sm font-semibold text-gray-400 hover:bg-purple-50 hover:text-purple-600 rounded"
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
                       href="#"
                     >
                       Testimonials
@@ -291,15 +294,13 @@ export default function Home() {
                     Sign In
               </a>
                   <a
-                    className="block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-pink-600 hover:bg-pink-700 rounded-l-xl rounded-t-xl"
+                    className={`block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-${mainColor} hover:bg-${mainColorDark} rounded-l-xl rounded-t-xl`}
                     href="#"
                   >
                     Sign Up
               </a>
                 </div>
-                <p className="my-4 text-xs text-center text-gray-400">
-                  <span>© 2020 All rights reserved.</span>
-                </p>
+
                 <div className="text-center">
                   <a className="inline-block px-1" href="#">
                     <img src="atis-assets/social/facebook-purple.svg" alt />
@@ -337,7 +338,7 @@ export default function Home() {
           <div className="py-20 bg-gray-50 radius-for-skewed">
             <div className="container mx-auto px-4">
               <div className="mb-16 max-w-md mx-auto text-center">
-                <span className="text-purple-600 font-bold">
+                <span className="text-${mainColor} font-bold">
                   We train and employ students to
             </span>
                 <h2 className="text-4xl lg:text-5xl font-bold font-heading">
@@ -379,9 +380,9 @@ export default function Home() {
                 <div className="mb-6 w-full lg:w-1/2 px-3">
                   <div className="p-6 flex flex-wrap bg-white shadow rounded-lg">
                     <div>
-                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded-lg bg-pink-100">
+                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded-lg bg-yellow-100">
                         <svg
-                          className="h-8 w-8 md:w-12 md:h-12 text-pink-500"
+                          className={`h-8 w-8 md:w-12 md:h-12 text-${secondaryColor}`}
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -487,7 +488,7 @@ export default function Home() {
         <section>
 
 
-          <div className="py-20 bg-purple-600 radius-for-skewed">
+          <div className="py-20 bg-${mainColor} radius-for-skewed">
             <div className="container mx-auto px-4">
               <div className="mb-16 max-w-lg mx-auto text-center">
                 <span className="text-purple-400 font-bold">Let us help you</span>
@@ -498,10 +499,10 @@ export default function Home() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
                 <div className="inline-block py-1 px-1 bg-purple-500 rounded-lg">
-                  <button className={`mr-1 text-sm py-2 px-4 text-white  ${!purchaseType ? selectedPurchaseType : 'hover:text-gray-200' } font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
+                  <button className={`mr-1 text-sm py-2 px-4 text-white  ${!purchaseType ? selectedPurchaseType : 'hover:text-gray-200'} font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
                     Single{" "}
                   </button>
-                  <button className={`text-sm py-2 px-4 text-white ${purchaseType ? selectedPurchaseType : 'hover:text-gray-200' } font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
+                  <button className={`text-sm py-2 px-4 text-white ${purchaseType ? selectedPurchaseType : 'hover:text-gray-200'} font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
                     Package
               </button>
                 </div>
@@ -514,7 +515,7 @@ export default function Home() {
                         Simple
                   </h3>
                       <p className="mb-6 text-gray-500">
-                        One web or mobile project with up to 5 pages.
+                        {!purchaseType ? 'One ' : 'Five '} web or mobile project{purchaseType && 's'} with up to 5 pages.
                   </p>
                     </div>
                     <div>
@@ -556,10 +557,10 @@ export default function Home() {
         </section>
         <section>
 
-          <div className="py-20 bg-purple-600 radius-for-skewed overflow-hidden">
+          <div className="py-20 bg-${mainColor} radius-for-skewed overflow-hidden">
             <div className="container mx-auto px-4">
               <div className="pt-8 pb-16 flex flex-wrap justify-center items-center">
-                <button className="mr-3 lg:mr-0 order-last lg:order-first bg-white p-4 rounded-full shadow-md text-purple-600 hover:text-purple-400 transition duration-200">
+                <button className="mr-3 lg:mr-0 order-last lg:order-first bg-white p-4 rounded-full shadow-md text-${mainColor} hover:text-purple-400 transition duration-200">
                   <svg
                     className="w-6 h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -749,7 +750,7 @@ export default function Home() {
         <section>
 
 
-          <div className="py-20 bg-purple-600 radius-for-skewed">
+          <div className="py-20 bg-${mainColor} radius-for-skewed">
             <div className="container mx-auto px-4">
               <div className="mb-12">
                 <h2 className="text-4xl lg:text-5xl font-bold font-heading text-white">
@@ -850,6 +851,10 @@ export default function Home() {
           </div>
 
         </section>
+        <footer>
+          <p className="my-4 text-xs text-center text-gray-400">
+            <span>© 2020 All rights reserved.</span>
+          </p></footer>
       </div>
     </>
 
