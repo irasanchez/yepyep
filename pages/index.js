@@ -598,7 +598,7 @@ export default function Home() {
                     Dolor sit amet consectutar
                   </span>
                   <h2 className="mt-4 text-4xl font-bold text-white lg:text-5xl font-heading">
-                    What our clients think about us
+                    What our clients think
                   </h2>
                 </div>
                 <button className="order-last p-4 text-green-600 transition duration-200 bg-white rounded-full shadow-md hover:text-green-400">
