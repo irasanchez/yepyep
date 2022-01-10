@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [purchaseType, setPurchaseType] = useState(false);
   const [menuVisibility, setMenuVisibility] = useState(false);
-  const [mainColor, mainColorDark] = ["yellow-600", "red-900"];
+  const [mainColor, mainColorDark] = ["yellow-500", "red-900"];
   const [secondaryColor, secondaryColorDark] = ["yellow-400", "yellow-700"];
   const selectedPurchaseType = `shadow-md bg-${mainColorDark} rounded`;
   const menu = {
@@ -148,7 +148,7 @@ export default function Home() {
               </li>
             </ul>
             <a
-              className={`hidden lg:block py-2 px-6 bg-yellow-600 hover:bg-${secondaryColorDark} text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200`}
+              className={`hidden lg:block py-2 px-6 bg-yellow-500 hover:bg-${secondaryColorDark} text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200`}
               href="#contact"
             >
               Contact Us
@@ -162,7 +162,7 @@ export default function Home() {
                     <div className="max-w-md mx-auto lg:mx-0">
                       <h2 className="mb-3 text-4xl font-bold text-white lg:text-5xl">
                         <span>Building your product should be</span>
-                        <span className={`text-yellow-600-400`}>easy</span>
+                        <span className={`text-yellow-500-400`}>easy</span>
                       </h2>
                     </div>
                     <div className="max-w-sm mx-auto lg:mx-0">
@@ -343,7 +343,7 @@ export default function Home() {
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
-              <polygon fill="currentColor" points="0 0 10 10 0 10" />
+              <polygon fill="white" points="0 0 10 10 0 10" />
             </svg>
           </div>
           <div className="skew skew-top ml-for-radius">
@@ -352,7 +352,7 @@ export default function Home() {
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
-              <polygon fill="currentColor" points="0 10 10 0 10 10" />
+              <polygon fill="white" points="0 10 10 0 10 10" />
             </svg>
           </div>
           <div className="py-20 bg-gray-50 radius-for-skewed">
@@ -402,7 +402,7 @@ export default function Home() {
                     <div>
                       <span className="inline-block p-3 mb-4 mr-6 bg-yellow-100 rounded-lg lg:mb-0 md:p-5">
                         <svg
-                          className={`h-8 w-8 md:w-12 md:h-12 text-yellow-600`}
+                          className={`h-8 w-8 md:w-12 md:h-12 text-yellow-500`}
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -538,7 +538,7 @@ export default function Home() {
                         $150
                       </span>
                       <a
-                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700"
+                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-500 rounded-l-xl rounded-t-xl hover:bg-pink-700"
                         href="#"
                       >
                         Get Started
@@ -561,7 +561,7 @@ export default function Home() {
                         $275
                       </span>
                       <a
-                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700"
+                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-500 rounded-l-xl rounded-t-xl hover:bg-pink-700"
                         href="#"
                       >
                         Get Started
@@ -864,7 +864,7 @@ export default function Home() {
                           </div>
                         </label>
 
-                        <button className="inline-block px-6 py-2 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700">
+                        <button className="inline-block px-6 py-2 font-bold leading-loose text-white transition duration-200 bg-yellow-500 rounded-l-xl rounded-t-xl hover:bg-pink-700">
                           Get Started
                         </button>
                       </div>
