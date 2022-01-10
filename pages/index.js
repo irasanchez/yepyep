@@ -1,23 +1,26 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { useState } from 'react'
-
-
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
-  const [purchaseType, setPurchaseType] = useState(false)
-  const [menuVisibility, setMenuVisibility] = useState(false)
-  const [mainColor, mainColorDark] = ['red-600', 'red-900']
-  const [secondaryColor, secondaryColorDark] = ['yellow-400', 'yellow-700']
-  const selectedPurchaseType = `shadow-md bg-${mainColorDark} rounded`
+  const [purchaseType, setPurchaseType] = useState(false);
+  const [menuVisibility, setMenuVisibility] = useState(false);
+  const [mainColor, mainColorDark] = ["yellow-600", "red-900"];
+  const [secondaryColor, secondaryColorDark] = ["yellow-400", "yellow-700"];
+  const selectedPurchaseType = `shadow-md bg-${mainColorDark} rounded`;
+  const menu = {
+    sides: [{ name: "icon or logo", price: 100 }],
+    combos: [{ name: "1", description: "", price: 275 }],
+  };
 
   return (
     <>
-
       <div>
         <section className="skewed-bottom-right">
-          <nav className={`relative px-6 py-6 flex justify-between items-center bg-${mainColor}`}>
-            <a className="text-white text-3xl font-bold leading-none" href="#">
+          <nav
+            className={`relative px-6 py-6 flex justify-between items-center bg-red-600`}
+          >
+            <a className="text-3xl font-bold leading-none text-white" href="#">
               <img
                 className="h-12"
                 src="atis-assets/logo/atis/atis-flat-white.svg"
@@ -26,9 +29,12 @@ export default function Home() {
               />
             </a>
             <div className="lg:hidden">
-              <button className="navbar-burger flex items-center text-white p-3" onClick={() => setMenuVisibility(!menuVisibility)}>
+              <button
+                className="flex items-center p-3 text-white navbar-burger"
+                onClick={() => setMenuVisibility(!menuVisibility)}
+              >
                 <svg
-                  className="block h-4 w-4 fill-current"
+                  className="block w-4 h-4 fill-current"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -37,11 +43,15 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            <ul className={`${menuVisibility ? '' : 'hidden'}  absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}>
+            <ul
+              className={`${
+                menuVisibility ? "" : "hidden"
+              }  absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6`}
+            >
               <li>
                 <a className="text-sm text-gray-300 hover:text-white" href="#">
                   Start
-            </a>
+                </a>
               </li>
               <li className="text-gray-800">
                 <svg
@@ -60,9 +70,9 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-white font-bold" href="#about">
+                <a className="text-sm font-bold text-white" href="#about">
                   About Us
-            </a>
+                </a>
               </li>
               <li className="text-gray-800">
                 <svg
@@ -81,9 +91,12 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#services">
+                <a
+                  className="text-sm text-gray-300 hover:text-white"
+                  href="#services"
+                >
                   Services
-            </a>
+                </a>
               </li>
               <li className="text-gray-800">
                 <svg
@@ -102,9 +115,12 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#pricing">
+                <a
+                  className="text-sm text-gray-300 hover:text-white"
+                  href="#pricing"
+                >
                   Pricing
-            </a>
+                </a>
               </li>
               <li className="text-gray-800">
                 <svg
@@ -123,77 +139,81 @@ export default function Home() {
                 </svg>
               </li>
               <li>
-                <a className="text-sm text-gray-300 hover:text-white" href="#reviews">
+                <a
+                  className="text-sm text-gray-300 hover:text-white"
+                  href="#reviews"
+                >
                   Testimonials
-            </a>
+                </a>
               </li>
             </ul>
             <a
-              className={`hidden lg:block py-2 px-6 bg-${secondaryColor} hover:bg-${secondaryColorDark} text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200`}
+              className={`hidden lg:block py-2 px-6 bg-yellow-600 hover:bg-${secondaryColorDark} text-sm text-white font-bold rounded-l-xl rounded-t-xl transition duration-200`}
               href="#contact"
             >
               Contact Us
-        </a>
+            </a>
           </nav>
-          <div className={`bg-${mainColor} pt-12 lg:pt-20 pb-20 radius-for-skewed`}>
-            <div className="container mx-auto px-4">
+          <div className={`bg-red-600 pt-12 lg:pt-20 pb-20 radius-for-skewed`}>
+            <div className="container px-4 mx-auto">
               <div className="flex flex-wrap -mx-4">
-                <div className="w-full lg:w-1/2 px-4 mb-12 md:mb-20 lg:mb-0 flex items-center">
+                <div className="flex items-center w-full px-4 mb-12 lg:w-1/2 md:mb-20 lg:mb-0">
                   <div className="w-full text-center lg:text-left">
                     <div className="max-w-md mx-auto lg:mx-0">
-                      <h2 className="mb-3 text-4xl lg:text-5xl text-white font-bold">
+                      <h2 className="mb-3 text-4xl font-bold text-white lg:text-5xl">
                         <span>Building your product should be</span>
-                        <span className={`text-${secondaryColor}-400`}>easy</span>
+                        <span className={`text-yellow-600-400`}>easy</span>
                       </h2>
                     </div>
                     <div className="max-w-sm mx-auto lg:mx-0">
-                      <p className="mb-6 text-gray-300 leading-loose">
-                        Affordable, transparent, friendly software service. <br /> Yepyep!
-                  </p>
+                      <p className="mb-6 leading-loose text-gray-300">
+                        Affordable, transparent, friendly software service.{" "}
+                        <br /> Yepyep!
+                      </p>
                       <div>
                         <a
-                          className={`inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-white hover:bg-red-100 text-${mainColor} font-semibold rounded-l-xl rounded-t-xl transition duration-200`}
+                          className={`inline-block mb-3 lg:mb-0 lg:mr-3 w-full lg:w-auto py-2 px-6 leading-loose bg-white hover:bg-red-100 text-red-600 font-semibold rounded-l-xl rounded-t-xl transition duration-200`}
                           href="#"
                         >
                           Get Started
-                    </a>
+                        </a>
                         <a
-                          className={`inline-block w-full lg:w-auto py-2 px-6 leading-loose text-white font-semibold bg-${mainColor} border-2 border-${mainColor} hover:border-${mainColorDark} rounded-l-xl rounded-t-xl transition duration-200`}
+                          className={`inline-block w-full lg:w-auto py-2 px-6 leading-loose text-white font-semibold bg-red-600 border-2 border-red-600 hover:border-${mainColorDark} rounded-l-xl rounded-t-xl transition duration-200`}
                           href="#features"
                         >
                           Features
-                    </a>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-1/2 px-4 flex items-center justify-center">
+                <div className="flex items-center justify-center w-full px-4 lg:w-1/2">
                   <div className="relative" style={{ zIndex: 0 }}>
                     <img
-                      className="h-128 w-full max-w-lg object-cover rounded-3xl md:rounded-br-none"
+                      className="object-cover w-full max-w-lg h-128 rounded-3xl md:rounded-br-none"
                       src="https://images.unsplash.com/photo-1462826303086-329426d1aef5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
                       alt
                     />
                     <img
-                      className="hidden md:block absolute"
+                      className="absolute hidden md:block"
                       style={{ top: "-2rem", right: "3rem", zIndex: -1 }}
                       src="atis-assets/elements/blue-up.svg"
                       alt
                     />
                     <img
-                      className="hidden md:block absolute"
+                      className="absolute hidden md:block"
                       style={{ bottom: "-2rem", right: "-2rem", zIndex: -1 }}
                       src="atis-assets/elements/wing-pink-down.svg"
                       alt
                     />
                     <img
-                      className="hidden md:block absolute"
+                      className="absolute hidden md:block"
                       style={{ top: "3rem", right: "-3rem", zIndex: -1 }}
                       src="atis-assets/elements/bullets-yellow-right.svg"
                       alt
                     />
                     <img
-                      className="hidden md:block absolute"
+                      className="absolute hidden md:block"
                       style={{ bottom: "2.5rem", left: "-4.5rem", zIndex: -1 }}
                       src="atis-assets/elements/bullets-yellow-left.svg"
                       alt
@@ -205,16 +225,16 @@ export default function Home() {
           </div>
           <div className="mr-for-radius">
             <svg
-              className={`h-8 md:h-12 lg:h-20 w-full text-${mainColor}`}
+              className={`h-8 md:h-12 lg:h-20 w-full text-red-600`}
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
               <polygon fill="currentColor" points="0 0 10 0 0 10" />
             </svg>
           </div>
-          <div className="hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-50">
-            <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25" />
-            <nav className="relative flex flex-col py-6 px-6 h-full w-full bg-white border-r overflow-y-auto">
+          <div className="fixed top-0 bottom-0 left-0 z-50 hidden w-5/6 max-w-sm navbar-menu">
+            <div className="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop" />
+            <nav className="relative flex flex-col w-full h-full px-6 py-6 overflow-y-auto bg-white border-r">
               <div className="flex items-center mb-8">
                 <a className="mr-auto text-3xl font-bold leading-none" href="#">
                   <img
@@ -226,7 +246,7 @@ export default function Home() {
                 </a>
                 <button className="navbar-close">
                   <svg
-                    className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                    className="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -245,71 +265,71 @@ export default function Home() {
                 <ul>
                   <li className="mb-1">
                     <a
-                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded`}
                       href="#"
                     >
                       Start
-                </a>
+                    </a>
                   </li>
                   <li className="mb-1">
                     <a
-                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded`}
                       href="#"
                     >
                       About Us
-                </a>
+                    </a>
                   </li>
                   <li className="mb-1">
                     <a
-                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded`}
                       href="#"
                     >
                       Services
-                </a>
+                    </a>
                   </li>
                   <li className="mb-1">
                     <a
-                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded`}
                       href="#"
                     >
                       Pricing
-                </a>
+                    </a>
                   </li>
                   <li className="mb-1">
                     <a
-                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-${mainColor} rounded`}
+                      className={`block p-4 text-sm font-semibold text-gray-400 hover:bg-red-50 hover:text-red-600 rounded`}
                       href="#"
                     >
                       Testimonials
-                </a>
+                    </a>
                   </li>
                 </ul>
               </div>
               <div className="mt-auto">
                 <div className="pt-6">
                   <a
-                    className="block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold leading-none bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl"
+                    className="block px-4 py-3 mb-3 text-xs font-semibold leading-none leading-loose text-center bg-gray-50 hover:bg-gray-100 rounded-l-xl rounded-t-xl"
                     href="#"
                   >
                     Sign In
-              </a>
+                  </a>
                   <a
-                    className={`block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-${mainColor} hover:bg-${mainColorDark} rounded-l-xl rounded-t-xl`}
+                    className={`block px-4 py-3 mb-2 leading-loose text-xs text-center text-white font-semibold bg-red-600 hover:bg-${mainColorDark} rounded-l-xl rounded-t-xl`}
                     href="#"
                   >
                     Sign Up
-              </a>
+                  </a>
                 </div>
 
                 <div className="text-center">
                   <a className="inline-block px-1" href="#">
-                    <img src="atis-assets/social/facebook-purple.svg" alt />
+                    <img src="atis-assets/social/facebook-yellow.svg" alt />
                   </a>
                   <a className="inline-block px-1" href="#">
-                    <img src="atis-assets/social/twitter-purple.svg" alt />
+                    <img src="atis-assets/social/twitter-yellow.svg" alt />
                   </a>
                   <a className="inline-block px-1" href="#">
-                    <img src="atis-assets/social/instagram-purple.svg" alt />
+                    <img src="atis-assets/social/instagram-yellow.svg" alt />
                   </a>
                 </div>
               </div>
@@ -319,7 +339,7 @@ export default function Home() {
         <section>
           <div className="skew skew-top mr-for-radius">
             <svg
-              className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
+              className="w-full h-8 md:h-12 lg:h-20 text-gray-50"
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
@@ -328,7 +348,7 @@ export default function Home() {
           </div>
           <div className="skew skew-top ml-for-radius">
             <svg
-              className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
+              className="w-full h-8 md:h-12 lg:h-20 text-gray-50"
               viewBox="0 0 10 10"
               preserveAspectRatio="none"
             >
@@ -336,22 +356,22 @@ export default function Home() {
             </svg>
           </div>
           <div className="py-20 bg-gray-50 radius-for-skewed">
-            <div className="container mx-auto px-4">
-              <div className="mb-16 max-w-md mx-auto text-center">
-                <span className="text-${mainColor} font-bold">
+            <div className="container px-4 mx-auto">
+              <div className="max-w-md mx-auto mb-16 text-center">
+                <span className="font-bold text-red-600">
                   We train and employ students to
-            </span>
-                <h2 className="text-4xl lg:text-5xl font-bold font-heading">
+                </span>
+                <h2 className="text-4xl font-bold lg:text-5xl font-heading">
                   Bring your app ideas to life
-            </h2>
+                </h2>
               </div>
               <div className="flex flex-wrap -mx-3">
-                <div className="mb-6 w-full lg:w-1/2 px-3">
-                  <div className="p-6 flex flex-wrap bg-white shadow rounded-lg">
+                <div className="w-full px-3 mb-6 lg:w-1/2">
+                  <div className="flex flex-wrap p-6 bg-white rounded-lg shadow">
                     <div>
-                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded-lg bg-yellow-100">
+                      <span className="inline-block p-3 mb-4 mr-6 bg-yellow-100 rounded-lg lg:mb-0 md:p-5">
                         <svg
-                          className="h-8 w-8 md:w-12 md:h-12 text-yellow-500"
+                          className="w-8 h-8 text-yellow-500 md:w-12 md:h-12"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -369,20 +389,20 @@ export default function Home() {
                     <div className="w-full lg:w-2/3">
                       <h3 className="mb-2 text-2xl font-bold font-heading">
                         We build it for you.
-                  </h3>
+                      </h3>
                       <p className="text-gray-500">
-                        No more spending hours to try and make Wordpress work for
-                    your needs.{" "}
+                        No more spending hours to try and make Wordpress work
+                        for your needs.{" "}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="mb-6 w-full lg:w-1/2 px-3">
-                  <div className="p-6 flex flex-wrap bg-white shadow rounded-lg">
+                <div className="w-full px-3 mb-6 lg:w-1/2">
+                  <div className="flex flex-wrap p-6 bg-white rounded-lg shadow">
                     <div>
-                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded-lg bg-yellow-100">
+                      <span className="inline-block p-3 mb-4 mr-6 bg-yellow-100 rounded-lg lg:mb-0 md:p-5">
                         <svg
-                          className={`h-8 w-8 md:w-12 md:h-12 text-${secondaryColor}`}
+                          className={`h-8 w-8 md:w-12 md:h-12 text-yellow-600`}
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -394,20 +414,20 @@ export default function Home() {
                     <div className="w-full lg:w-2/3">
                       <h3 className="mb-2 text-2xl font-bold font-heading">
                         Just tell us what you want.
-                  </h3>
+                      </h3>
                       <p className="text-gray-500">
-                        No designs or previous files needed. Take a quick quiz, and
-                        we build something beautiful for you.
-                  </p>
+                        No designs or previous files needed. Take a quick quiz,
+                        and we build something beautiful for you.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="mb-6 lg:mb-0 w-full lg:w-1/2 px-3">
-                  <div className="p-6 flex flex-wrap bg-white shadow rounded-lg">
+                <div className="w-full px-3 mb-6 lg:mb-0 lg:w-1/2">
+                  <div className="flex flex-wrap p-6 bg-white rounded-lg shadow">
                     <div>
-                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded bg-blue-100">
+                      <span className="inline-block p-3 mb-4 mr-6 bg-blue-100 rounded lg:mb-0 md:p-5">
                         <svg
-                          className="h-8 w-8 md:w-12 md:h-12 text-blue-500"
+                          className="w-8 h-8 text-blue-500 md:w-12 md:h-12"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -425,20 +445,20 @@ export default function Home() {
                     <div className="w-full lg:w-2/3">
                       <h3 className="mb-2 text-2xl font-bold font-heading">
                         Unlimited changes
-                  </h3>
+                      </h3>
                       <p className="text-gray-500">
-                        Let us know in a timely fashion what needs to change, and
-                        we'll be right on it.
-                  </p>
+                        Let us know in a timely fashion what needs to change,
+                        and we'll be right on it.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-1/2 px-3">
-                  <div className="p-6 flex flex-wrap bg-white shadow rounded-lg">
+                <div className="w-full px-3 lg:w-1/2">
+                  <div className="flex flex-wrap p-6 bg-white rounded-lg shadow">
                     <div>
-                      <span className="mb-4 lg:mb-0 mr-6 inline-block p-3 md:p-5 rounded bg-purple-100">
+                      <span className="inline-block p-3 mb-4 mr-6 bg-yellow-100 rounded lg:mb-0 md:p-5">
                         <svg
-                          className="h-8 w-8 md:w-12 md:h-12 text-purple-500"
+                          className="w-8 h-8 text-yellow-500 md:w-12 md:h-12"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -455,112 +475,109 @@ export default function Home() {
                     <div className="w-full lg:w-2/3">
                       <h3 className="mb-2 text-2xl font-bold font-heading">
                         Closing the experience gap
-                  </h3>
+                      </h3>
                       <p className="text-gray-500">
-                        We give students paid experience to help them compete in the
-                        technology sector.
-                  </p>
+                        We give students paid experience to help them compete in
+                        the technology sector.
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="skew skew-bottom mr-for-radius">
-            <svg
-              className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
-              viewBox="0 0 10 10"
-              preserveAspectRatio="none"
-            >
-              <polygon fill="currentColor" points="0 0 10 0 0 10" />
-            </svg>
-          </div>
-          <div className="skew skew-bottom ml-for-radius">
-            <svg
-              className="h-8 md:h-12 lg:h-20 w-full text-gray-50"
-              viewBox="0 0 10 10"
-              preserveAspectRatio="none"
-            >
-              <polygon fill="currentColor" points="0 0 10 0 10 10" />
-            </svg>
-          </div>
         </section>
         <section>
-
-
-          <div className="py-20 bg-${mainColor} radius-for-skewed">
-            <div className="container mx-auto px-4">
-              <div className="mb-16 max-w-lg mx-auto text-center">
-                <span className="text-purple-400 font-bold">Let us help you</span>
-                <h2 className="mb-2 text-4xl lg:text-5xl font-bold font-heading text-white">
-                  Simplify engineering{" "}
+          <div className="py-20 bg-red-600 radius-for-skewed">
+            <div className="container px-4 mx-auto">
+              <div className="max-w-lg mx-auto mb-16 text-center">
+                <span className="font-bold text-yellow-400">Check out our</span>
+                <h2 className="mb-2 text-4xl font-bold text-white uppercase lg:text-5xl font-heading">
+                  Menu
                 </h2>
                 <p className="mb-6 text-gray-100">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
-                <div className="inline-block py-1 px-1 bg-purple-500 rounded-lg">
-                  <button className={`mr-1 text-sm py-2 px-4 text-white  ${!purchaseType ? selectedPurchaseType : 'hover:text-gray-200'} font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
-                    Single{" "}
+                  What you want. The way you want it.
+                </p>
+                <div className="inline-block px-1 py-1 bg-yellow-500 rounded-lg">
+                  <button
+                    className={`mr-1 text-sm py-2 px-4 text-white  ${
+                      !purchaseType
+                        ? selectedPurchaseType
+                        : "hover:text-gray-200"
+                    } font-bold`}
+                    onClick={() => setPurchaseType(!purchaseType)}
+                  >
+                    Sides{" "}
                   </button>
-                  <button className={`text-sm py-2 px-4 text-white ${purchaseType ? selectedPurchaseType : 'hover:text-gray-200'} font-bold`} onClick={() => setPurchaseType(!purchaseType)}>
-                    Package
-              </button>
+                  <button
+                    className={`text-sm py-2 px-4 text-white ${
+                      purchaseType
+                        ? selectedPurchaseType
+                        : "hover:text-gray-200"
+                    } font-bold`}
+                    onClick={() => setPurchaseType(!purchaseType)}
+                  >
+                    Combos
+                  </button>
                 </div>
               </div>
               <div className="flex flex-wrap max-w-4xl mx-auto">
-                <div className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">
-                  <div className="py-8 px-10 max-w-md mx-auto bg-white shadow rounded text-center">
+                <div className="w-full px-4 mb-8 lg:w-1/2 lg:mb-0">
+                  <div className="max-w-md px-10 py-8 mx-auto text-center bg-white rounded shadow">
                     <div className="mb-12">
                       <h3 className="mb-4 text-2xl font-bold font-heading">
                         Simple
-                  </h3>
+                      </h3>
                       <p className="mb-6 text-gray-500">
-                        {!purchaseType ? 'One ' : 'Five '} web or mobile project{purchaseType && 's'} with up to 5 pages.
-                  </p>
+                        {!purchaseType ? "One " : "Five "} web or mobile project
+                        {purchaseType && "s"} with up to 5 pages.
+                      </p>
                     </div>
                     <div>
-                      <span className="text-5xl lg:text-6xl font-bold">$150</span>
+                      <span className="text-5xl font-bold lg:text-6xl">
+                        $150
+                      </span>
                       <a
-                        className="inline-block mt-6 w-full py-2 px-6 rounded-l-xl rounded-t-xl bg-pink-600 hover:bg-pink-700 text-white font-bold leading-loose transition duration-200"
+                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700"
                         href="#"
                       >
                         Get Started
-                  </a>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div className="w-full lg:w-1/2 px-4">
-                  <div className="py-8 px-10 max-w-md mx-auto bg-white shadow rounded text-center">
+                <div className="w-full px-4 lg:w-1/2">
+                  <div className="max-w-md px-10 py-8 mx-auto text-center bg-white rounded shadow">
                     <div className="mb-12">
                       <h3 className="mb-4 text-2xl font-bold font-heading">
                         Complex
-                  </h3>
+                      </h3>
                       <p className="mb-6 text-gray-500">
                         One web or mobile project with up to 10 pages.
-                  </p>
+                      </p>
                     </div>
                     <div>
-                      <span className="text-5xl lg:text-6xl font-bold">$275</span>
+                      <span className="text-5xl font-bold lg:text-6xl">
+                        $275
+                      </span>
                       <a
-                        className="inline-block mt-6 w-full py-2 px-6 rounded-l-xl rounded-t-xl bg-pink-600 hover:bg-pink-700 text-white font-bold leading-loose transition duration-200"
+                        className="inline-block w-full px-6 py-2 mt-6 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700"
                         href="#"
                       >
                         Get Started
-                  </a>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </section>
         <section>
-
-          <div className="py-20 bg-${mainColor} radius-for-skewed overflow-hidden">
-            <div className="container mx-auto px-4">
-              <div className="pt-8 pb-16 flex flex-wrap justify-center items-center">
-                <button className="mr-3 lg:mr-0 order-last lg:order-first bg-white p-4 rounded-full shadow-md text-${mainColor} hover:text-purple-400 transition duration-200">
+          <div className="py-20 overflow-hidden bg-red-600 radius-for-skewed">
+            <div className="container px-4 mx-auto">
+              <div className="flex flex-wrap items-center justify-center pt-8 pb-16">
+                <button className="order-last p-4 mr-3 text-red-600 transition duration-200 bg-white rounded-full shadow-md lg:mr-0 lg:order-first hover:text-yellow-400">
                   <svg
                     className="w-6 h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -576,15 +593,15 @@ export default function Home() {
                     />
                   </svg>
                 </button>
-                <div className="mb-10 max-w-lg text-center mx-auto">
-                  <span className="text-purple-400 font-bold">
+                <div className="max-w-lg mx-auto mb-10 text-center">
+                  <span className="font-bold text-yellow-400">
                     Dolor sit amet consectutar
-              </span>
-                  <h2 className="mt-4 text-4xl lg:text-5xl font-bold font-heading text-white">
+                  </span>
+                  <h2 className="mt-4 text-4xl font-bold text-white lg:text-5xl font-heading">
                     What our clients think about us
-              </h2>
+                  </h2>
                 </div>
-                <button className="order-last bg-white p-4 rounded-full shadow-md text-green-600 hover:text-green-400 transition duration-200">
+                <button className="order-last p-4 text-green-600 transition duration-200 bg-white rounded-full shadow-md hover:text-green-400">
                   <svg
                     className="w-6 h-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -601,14 +618,14 @@ export default function Home() {
                   </svg>
                 </button>
               </div>
-              <div className="flex w-full relative">
+              <div className="relative flex w-full">
                 <div
-                  className="hidden lg:block absolute w-1/3 px-3 opacity-50"
+                  className="absolute hidden w-1/3 px-3 opacity-50 lg:block"
                   style={{ left: "-370px", top: 0 }}
                 >
-                  <div className="p-5 bg-white shadow rounded">
+                  <div className="p-5 bg-white rounded shadow">
                     <svg
-                      className="mb-6 text-yellow-500 h-8"
+                      className="h-8 mb-6 text-yellow-500"
                       viewBox="0 0 32 28"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -622,20 +639,21 @@ export default function Home() {
                         fill="currentColor"
                       />
                     </svg>
-                    <p className="text-gray-500 leading-loose mb-4">
-                      Suspendisse gravida nec erat sit amet posuere. Nam sit amet
-                      nunc a nulla commodo pulvinar quis eu neque. Maecenas maximus
-                      lobortis libero non dignissim. Integer quis tempor lorem.
-                </p>
+                    <p className="mb-4 leading-loose text-gray-500">
+                      Suspendisse gravida nec erat sit amet posuere. Nam sit
+                      amet nunc a nulla commodo pulvinar quis eu neque. Maecenas
+                      maximus lobortis libero non dignissim. Integer quis tempor
+                      lorem.
+                    </p>
                     <h4 className="font-bold font-heading">Ian Brown</h4>
                     <p className="text-gray-500">Product Designer</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap justify-center mx-auto">
-                  <div className="mb-4 w-full lg:w-1/3 px-3">
-                    <div className="p-5 bg-white shadow rounded">
+                  <div className="w-full px-3 mb-4 lg:w-1/3">
+                    <div className="p-5 bg-white rounded shadow">
                       <svg
-                        className="mb-6 text-yellow-500 h-8"
+                        className="h-8 mb-6 text-yellow-500"
                         viewBox="0 0 32 28"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -649,19 +667,19 @@ export default function Home() {
                           fill="currentColor"
                         />
                       </svg>
-                      <p className="text-gray-500 leading-loose mb-4">
+                      <p className="mb-4 leading-loose text-gray-500">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque et placerat metus. Morbi aliquet felis sit amet
-                        erat finibus, ac condimentum ligula ornare.
-                  </p>
+                        Pellentesque et placerat metus. Morbi aliquet felis sit
+                        amet erat finibus, ac condimentum ligula ornare.
+                      </p>
                       <h4 className="font-bold font-heading">Daisy Carter</h4>
                       <p className="text-gray-500">Product Development</p>
                     </div>
                   </div>
-                  <div className="mb-4 w-full lg:w-1/3 px-3">
-                    <div className="p-5 bg-white shadow rounded">
+                  <div className="w-full px-3 mb-4 lg:w-1/3">
+                    <div className="p-5 bg-white rounded shadow">
                       <svg
-                        className="mb-6 text-green-500 h-8"
+                        className="h-8 mb-6 text-green-500"
                         viewBox="0 0 32 28"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -675,20 +693,21 @@ export default function Home() {
                           fill="currentColor"
                         />
                       </svg>
-                      <p className="text-gray-500 leading-loose mb-4">
+                      <p className="mb-4 leading-loose text-gray-500">
                         Hasellus sollicitudin massa ut quam aliquam, feugiat
-                        fringilla est aliquam. Phasellus tincidunt mi a pellentesque
-                        fermentum. Quisque vitae erat iaculis, porttitor elit sed,
-                        viverra nisl. Maecenas facilisis viverra sollicitudin.
-                  </p>
+                        fringilla est aliquam. Phasellus tincidunt mi a
+                        pellentesque fermentum. Quisque vitae erat iaculis,
+                        porttitor elit sed, viverra nisl. Maecenas facilisis
+                        viverra sollicitudin.
+                      </p>
                       <h4 className="font-bold font-heading">Ian Brown</h4>
                       <p className="text-gray-500">Product Designer</p>
                     </div>
                   </div>
-                  <div className="mb-4 w-full lg:w-1/3 px-3">
-                    <div className="p-5 bg-white shadow rounded">
+                  <div className="w-full px-3 mb-4 lg:w-1/3">
+                    <div className="p-5 bg-white rounded shadow">
                       <svg
-                        className="mb-6 text-blue-500 h-8"
+                        className="h-8 mb-6 text-blue-500"
                         viewBox="0 0 32 28"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -702,23 +721,23 @@ export default function Home() {
                           fill="currentColor"
                         />
                       </svg>
-                      <p className="text-gray-500 leading-loose mb-4">
+                      <p className="mb-4 leading-loose text-gray-500">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Pellentesque et placerat metus. Morbi aliquet felis sit amet
-                        erat finibus, ac condimentum ligula ornare.
-                  </p>
+                        Pellentesque et placerat metus. Morbi aliquet felis sit
+                        amet erat finibus, ac condimentum ligula ornare.
+                      </p>
                       <h4 className="font-bold font-heading">Daisy Carter</h4>
                       <p className="text-gray-500">Product Development</p>
                     </div>
                   </div>
                 </div>
                 <div
-                  className="hidden lg:block absolute w-1/3 px-3 opacity-50"
+                  className="absolute hidden w-1/3 px-3 opacity-50 lg:block"
                   style={{ right: "-370px", top: 0 }}
                 >
-                  <div className="p-5 bg-white shadow rounded">
+                  <div className="p-5 bg-white rounded shadow">
                     <svg
-                      className="mb-6 text-green-600 h-8"
+                      className="h-8 mb-6 text-green-600"
                       viewBox="0 0 32 28"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -732,12 +751,13 @@ export default function Home() {
                         fill="currentColor"
                       />
                     </svg>
-                    <p className="text-gray-500 leading-loose mb-4">
-                      Hasellus sollicitudin massa ut quam aliquam, feugiat fringilla
-                      est aliquam. Phasellus tincidunt mi a pellentesque fermentum.
-                      Quisque vitae erat iaculis, porttitor elit sed, viverra nisl.
-                      Maecenas facilisis viverra sollicitudin.
-                </p>
+                    <p className="mb-4 leading-loose text-gray-500">
+                      Hasellus sollicitudin massa ut quam aliquam, feugiat
+                      fringilla est aliquam. Phasellus tincidunt mi a
+                      pellentesque fermentum. Quisque vitae erat iaculis,
+                      porttitor elit sed, viverra nisl. Maecenas facilisis
+                      viverra sollicitudin.
+                    </p>
                     <h4 className="font-bold font-heading">Ian Brown</h4>
                     <p className="text-gray-500">Product Designer</p>
                   </div>
@@ -745,49 +765,55 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </section>
         <section>
-
-
-          <div className="py-20 bg-${mainColor} radius-for-skewed">
-            <div className="container mx-auto px-4">
+          <div className="py-20 bg-red-600 radius-for-skewed">
+            <div className="container px-4 mx-auto">
               <div className="mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold font-heading text-white">
+                <h2 className="text-4xl font-bold text-white lg:text-5xl font-heading">
                   Contact
-            </h2>
-                <p className="text-gray-50 leading-loose">
+                </h2>
+                <p className="leading-loose text-gray-50">
                   Got any question? Let’s talk about it.
-            </p>
+                </p>
               </div>
               <div className="flex flex-wrap">
-                <div className="w-full lg:w-1/2 mb-16 lg:mb-0">
+                <div className="w-full mb-16 lg:w-1/2 lg:mb-0">
                   <div className="flex flex-wrap">
-                    <div className="mb-12 w-full md:w-1/2 lg:w-1/2">
-                      <h3 className="mb-2 text-3xl lg:text-4xl font-bold text-white">
+                    <div className="w-full mb-12 md:w-1/2 lg:w-1/2">
+                      <h3 className="mb-2 text-3xl font-bold text-white lg:text-4xl">
                         Jobs
-                  </h3>
+                      </h3>
                       <p className="text-gray-50">
                         Are you a student interested in working with us?
-                  </p>
+                      </p>
                       <p className="text-gray-50">
                         Use the contact form to send us your GitHub/LinkedIn.
-                  </p>
+                      </p>
                     </div>
-                    <div className="mb-12 w-full md:w-1/2"></div>
+                    <div className="w-full mb-12 md:w-1/2"></div>
                     <div className="w-full md:w-1/3 lg:w-full">
-                      <h3 className="mb-2 text-3xl lg:text-4xl font-bold text-white">
+                      <h3 className="mb-2 text-3xl font-bold text-white lg:text-4xl">
                         Socials
-                  </h3>
+                      </h3>
                       <div className="flex">
                         <a className="mr-3" href="#">
-                          <img src="atis-assets/social/facebook-yellow.svg" alt />
+                          <img
+                            src="atis-assets/social/facebook-yellow.svg"
+                            alt
+                          />
                         </a>
                         <a className="mr-3" href="#">
-                          <img src="atis-assets/social/twitter-yellow.svg" alt />
+                          <img
+                            src="atis-assets/social/twitter-yellow.svg"
+                            alt
+                          />
                         </a>
                         <a href="#">
-                          <img src="atis-assets/social/instagram-yellow.svg" alt />
+                          <img
+                            src="atis-assets/social/instagram-yellow.svg"
+                            alt
+                          />
                         </a>
                       </div>
                     </div>
@@ -819,7 +845,7 @@ export default function Home() {
                       </div>
                       <div className="mb-4">
                         <textarea
-                          className="w-full h-24 p-4 text-xs font-semibold leading-none resize-none bg-white rounded outline-none"
+                          className="w-full h-24 p-4 text-xs font-semibold leading-none bg-white rounded outline-none resize-none"
                           type="text"
                           placeholder="Message..."
                           defaultValue={""}
@@ -833,15 +859,14 @@ export default function Home() {
                             placeholder="Choose file.."
                             name="Choose file"
                           />
-                          <div className="my-1 ml-auto px-4 py-3 text-xs text-white font-semibold leading-none bg-gray-500 hover:bg-gray-600 rounded cursor-pointer transition duration-200">
+                          <div className="px-4 py-3 my-1 ml-auto text-xs font-semibold leading-none text-white transition duration-200 bg-gray-500 rounded cursor-pointer hover:bg-gray-600">
                             Browse
-                      </div>
+                          </div>
                         </label>
 
-
-                        <button className="inline-block py-2 px-6 rounded-l-xl rounded-t-xl bg-pink-600 hover:bg-pink-700 text-white font-bold leading-loose transition duration-200">
+                        <button className="inline-block px-6 py-2 font-bold leading-loose text-white transition duration-200 bg-yellow-600 rounded-l-xl rounded-t-xl hover:bg-pink-700">
                           Get Started
-                    </button>
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -849,14 +874,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </section>
         <footer>
           <p className="my-4 text-xs text-center text-gray-400">
             <span>© 2020 All rights reserved.</span>
-          </p></footer>
+          </p>
+        </footer>
       </div>
     </>
-
-  )
+  );
 }
